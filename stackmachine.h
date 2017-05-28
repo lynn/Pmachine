@@ -7,6 +7,7 @@
 #include <vector>
 #include <typeinfo>
 #include <strstream>
+#include <string>
 using namespace std;
 
 #include "instruction.h"
@@ -137,6 +138,8 @@ class StackMachine
 		// private operations
 		int base(int a, int p);		
 		
+		// Returns a string with the 2 most important pointer at index i. SP > NP > NP > EP. Empty string if no match. Format: SP|MP
+		std::string getBestPointersAtIndex(int i) const;
 };
 
 

@@ -155,6 +155,12 @@ void StackMachine::showStack()
 	
 	for(int i = beginvalue; i < fStore.size(); ++i)
 	{
+		string pointers = getBestPointersAtIndex(i);
+		if(!pointers.empty()){
+			pointers += "->";
+			cout.width(7);	// 7 because a tab is 8. The next tab char will fill to a width of 8.
+			cout << right << pointers;
+		}
 		cout << "\t[" << i << "]\t\t" << "[" << fStore[i]->getType() << "]\t" << *fStore[i] << endl;
 	}
 	cout << endl;
@@ -173,6 +179,12 @@ void StackMachine::showHeap()
 	{
 		for(int i = -1; i >= fNP; --i)
 		{
+			string pointers = getBestPointersAtIndex(i);
+			if(!pointers.empty()){
+				pointers += "->";
+				cout.width(7);	// 7 because a tab is 8. The next tab char will fill to a width of 8.
+				cout << right << pointers;
+			}
 			cout << "\t[" << i << "]\t\t" << "[" << fHeap[-i-1]->getType() << "]\t" << *fHeap[-i-1] << endl;
 		}
 		cout << endl;
@@ -254,5 +266,32 @@ int StackMachine::base(int p, int a)
 		{
 			return base(p - 1, fStore[a+1]->getValue());
 		}
+	}
+}
+
+string StackMachine::getBestPointersAtIndex(int i) const {
+	string ret1 = "";
+	string ret2 = "";
+	string *toFill = &ret1;
+	if(fSP == i){
+		*toFill += "SP";
+		toFill = &ret2;
+	}
+	if(fNP == i){
+		*toFill += "NP";
+		toFill = &ret2;
+	}
+	if(fMP == i){
+		*toFill += "MP";
+		toFill = &ret2;
+	}
+	if(fEP == i){
+		*toFill += "EP";
+		toFill = &ret2;
+	}
+	if(!ret2.empty()){
+		return ret1 + "|" + ret2.substr(0,2);
+	}else{
+		return ret1;
 	}
 }
