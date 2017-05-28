@@ -95,7 +95,7 @@ void Sro::execute(StackMachine *stack)
 			throw ExecutionError("instruction ind: invalid heap address.");
 		else
 		{
-			stack->fHeap[fQ] = stack->fStore[stack->fSP];
+			stack->fHeap[-fQ-1] = stack->fStore[stack->fSP];
 		}
 	}
 	else
