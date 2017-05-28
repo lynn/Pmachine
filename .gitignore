@@ -1,2 +1,5 @@
-# Binary
+# Compilation output
 Pmachine
+*.o
+*.tab.[cho]
+*.yy.c

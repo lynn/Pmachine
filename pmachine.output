@@ -7,7 +7,7 @@ Grammar
 
     0 $accept: Grammar $end
 
-    1 Grammar: /* empty */
+    1 Grammar: %empty
     2        | InstructionSequence
 
     3 EndlineRepeater: EndlineRepeater endline
@@ -434,7 +434,7 @@ label_introduction (123)
     on left: 171, on right: 57
 
 
-state 0
+State 0
 
     0 $accept: . Grammar $end
 
@@ -548,7 +548,7 @@ state 0
     label_introduction   go to state 105
 
 
-state 1
+State 1
 
    66 add_instruction: add_instr . space numeric
    67                | add_instr . error
@@ -559,7 +559,7 @@ state 1
     space  go to state 108
 
 
-state 2
+State 2
 
    68 sub_instruction: sub_instr . space numeric
    69                | sub_instr . error
@@ -570,7 +570,7 @@ state 2
     space  go to state 110
 
 
-state 3
+State 3
 
    70 mul_instruction: mul_instr . space numeric
    71                | mul_instr . error
@@ -581,7 +581,7 @@ state 3
     space  go to state 112
 
 
-state 4
+State 4
 
    72 div_instruction: div_instr . space numeric
    73                | div_instr . error
@@ -592,7 +592,7 @@ state 4
     space  go to state 114
 
 
-state 5
+State 5
 
    74 neg_instruction: neg_instr . space numeric
    75                | neg_instr . error
@@ -603,28 +603,28 @@ state 5
     space  go to state 116
 
 
-state 6
+State 6
 
    76 and_instruction: and_instr .
 
     $default  reduce using rule 76 (and_instruction)
 
 
-state 7
+State 7
 
    77 or_instruction: or_instr .
 
     $default  reduce using rule 77 (or_instruction)
 
 
-state 8
+State 8
 
    78 not_instruction: not_instr .
 
     $default  reduce using rule 78 (not_instruction)
 
 
-state 9
+State 9
 
    79 equ_instruction: equ_instr . space arbitrary
    80                | equ_instr . error
@@ -635,7 +635,7 @@ state 9
     space  go to state 118
 
 
-state 10
+State 10
 
    81 geq_instruction: geq_instr . space arbitrary
    82                | geq_instr . error
@@ -646,7 +646,7 @@ state 10
     space  go to state 120
 
 
-state 11
+State 11
 
    83 leq_instruction: leq_instr . space arbitrary
    84                | leq_instr . error
@@ -657,7 +657,7 @@ state 11
     space  go to state 122
 
 
-state 12
+State 12
 
    85 les_instruction: les_instr . space arbitrary
    86                | les_instr . error
@@ -668,7 +668,7 @@ state 12
     space  go to state 124
 
 
-state 13
+State 13
 
    87 grt_instruction: grt_instr . space arbitrary
    88                | grt_instr . error
@@ -679,7 +679,7 @@ state 13
     space  go to state 126
 
 
-state 14
+State 14
 
    89 neq_instruction: neq_instr . space arbitrary
    90                | neq_instr . error
@@ -690,7 +690,7 @@ state 14
     space  go to state 128
 
 
-state 15
+State 15
 
    91 ldo_instruction: ldo_instr . space arbitrary space integervalue
    92                | ldo_instr . error
@@ -701,7 +701,7 @@ state 15
     space  go to state 130
 
 
-state 16
+State 16
 
    93 ldc_instruction: ldc_instr . space real_specifier space realvalue
    94                | ldc_instr . space integer_specifier space integervalue
@@ -717,7 +717,7 @@ state 16
     space  go to state 132
 
 
-state 17
+State 17
 
   100 ind_instruction: ind_instr . space arbitrary
   101                | ind_instr . error
@@ -728,7 +728,7 @@ state 17
     space  go to state 134
 
 
-state 18
+State 18
 
   102 sro_instruction: sro_instr . space arbitrary space integervalue
   103                | sro_instr . error
@@ -739,7 +739,7 @@ state 18
     space  go to state 136
 
 
-state 19
+State 19
 
   104 sto_instruction: sto_instr . space arbitrary
   105                | sto_instr . error
@@ -750,7 +750,7 @@ state 19
     space  go to state 138
 
 
-state 20
+State 20
 
   106 ujp_instruction: ujp_instr . space appliedlabel
   107                | ujp_instr . error
@@ -761,7 +761,7 @@ state 20
     space  go to state 140
 
 
-state 21
+State 21
 
   108 fjp_instruction: fjp_instr . space appliedlabel
   109                | fjp_instr . error
@@ -772,7 +772,7 @@ state 21
     space  go to state 142
 
 
-state 22
+State 22
 
   110 ixj_instruction: ixj_instr . space appliedlabel
   111                | ixj_instr . error
@@ -783,7 +783,7 @@ state 22
     space  go to state 144
 
 
-state 23
+State 23
 
   112 ixa_instruction: ixa_instr . space integervalue
   113                | ixa_instr . error
@@ -794,7 +794,7 @@ state 23
     space  go to state 146
 
 
-state 24
+State 24
 
   114 inc_instruction: inc_instr . space arbitrary space integervalue
   115                | inc_instr . error
@@ -805,7 +805,7 @@ state 24
     space  go to state 148
 
 
-state 25
+State 25
 
   116 dec_instruction: dec_instr . space arbitrary space integervalue
   117                | dec_instr . error
@@ -816,7 +816,7 @@ state 25
     space  go to state 150
 
 
-state 26
+State 26
 
   118 chk_instruction: chk_instr . space integervalue space integervalue
   119                | chk_instr . error
@@ -827,7 +827,7 @@ state 26
     space  go to state 152
 
 
-state 27
+State 27
 
   120 dpl_instruction: dpl_instr . space arbitrary
   121                | dpl_instr . error
@@ -838,7 +838,7 @@ state 27
     space  go to state 154
 
 
-state 28
+State 28
 
   122 ldd_instruction: ldd_instr . space integervalue
   123                | ldd_instr . error
@@ -849,7 +849,7 @@ state 28
     space  go to state 156
 
 
-state 29
+State 29
 
   124 sli_instruction: sli_instr . space arbitrary
   125                | sli_instr . error
@@ -860,14 +860,14 @@ state 29
     space  go to state 158
 
 
-state 30
+State 30
 
   126 new_instruction: new_instr .
 
     $default  reduce using rule 126 (new_instruction)
 
 
-state 31
+State 31
 
   127 lod_instruction: lod_instr . space arbitrary space integervalue space integervalue
   128                | lod_instr . error
@@ -878,7 +878,7 @@ state 31
     space  go to state 160
 
 
-state 32
+State 32
 
   129 lda_instruction: lda_instr . space integervalue space integervalue
   130                | lda_instr . error
@@ -889,7 +889,7 @@ state 32
     space  go to state 162
 
 
-state 33
+State 33
 
   131 str_instruction: str_instr . space arbitrary space integervalue space integervalue
   132                | str_instr . error
@@ -900,7 +900,7 @@ state 33
     space  go to state 164
 
 
-state 34
+State 34
 
   133 mst_instruction: mst_instr . space integervalue
   134                | mst_instr . error
@@ -911,7 +911,7 @@ state 34
     space  go to state 166
 
 
-state 35
+State 35
 
   135 cup_instruction: cup_instr . space integervalue space appliedlabel
   136                | cup_instr . error
@@ -922,7 +922,7 @@ state 35
     space  go to state 168
 
 
-state 36
+State 36
 
   137 ssp_instruction: ssp_instr . space integervalue
   138                | ssp_instr . error
@@ -933,7 +933,7 @@ state 36
     space  go to state 170
 
 
-state 37
+State 37
 
   139 sep_instruction: sep_instr . space integervalue
   140                | sep_instr . error
@@ -944,7 +944,7 @@ state 37
     space  go to state 172
 
 
-state 38
+State 38
 
   141 ent_instruction: ent_instr . space integervalue space integervalue
   142                | ent_instr . error
@@ -955,21 +955,21 @@ state 38
     space  go to state 174
 
 
-state 39
+State 39
 
   143 retf_instruction: retf_instr .
 
     $default  reduce using rule 143 (retf_instruction)
 
 
-state 40
+State 40
 
   144 retp_instruction: retp_instr .
 
     $default  reduce using rule 144 (retp_instruction)
 
 
-state 41
+State 41
 
   145 movs_instruction: movs_instr . space integervalue
   146                 | movs_instr . error
@@ -980,7 +980,7 @@ state 41
     space  go to state 176
 
 
-state 42
+State 42
 
   147 movd_instruction: movd_instr . space integervalue
   148                 | movd_instr . error
@@ -991,7 +991,7 @@ state 42
     space  go to state 178
 
 
-state 43
+State 43
 
   149 smp_instruction: smp_instr . space integervalue
   150                | smp_instr . error
@@ -1002,7 +1002,7 @@ state 43
     space  go to state 180
 
 
-state 44
+State 44
 
   151 cupi_instruction: cupi_instr . space integervalue space integervalue
   152                 | cupi_instr . error
@@ -1013,7 +1013,7 @@ state 44
     space  go to state 182
 
 
-state 45
+State 45
 
   153 mstf_instruction: mstf_instr . space integervalue space integervalue
   154                 | mstf_instr . error
@@ -1024,14 +1024,14 @@ state 45
     space  go to state 184
 
 
-state 46
+State 46
 
   155 hlt_instruction: hlt_instr .
 
     $default  reduce using rule 155 (hlt_instruction)
 
 
-state 47
+State 47
 
   156 inp_instruction: inp_instr . space integer_specifier
   157                | inp_instr . space real_specifier
@@ -1046,7 +1046,7 @@ state 47
     space  go to state 186
 
 
-state 48
+State 48
 
   162 out_instruction: out_instr . space real_specifier space integer_specifier
   163                | out_instr . space real_specifier
@@ -1062,7 +1062,7 @@ state 48
     space  go to state 188
 
 
-state 49
+State 49
 
   169 conv_instruction: conv_instr . space arbitrary space arbitrary
   170                 | conv_instr . error
@@ -1073,28 +1073,28 @@ state 49
     space  go to state 190
 
 
-state 50
+State 50
 
     4 EndlineRepeater: endline .
 
     $default  reduce using rule 4 (EndlineRepeater)
 
 
-state 51
+State 51
 
   171 label_introduction: defininglabel .
 
     $default  reduce using rule 171 (label_introduction)
 
 
-state 52
+State 52
 
     0 $accept: Grammar . $end
 
     $end  shift, and go to state 191
 
 
-state 53
+State 53
 
     3 EndlineRepeater: EndlineRepeater . endline
     7 InstructionSequence: EndlineRepeater .
@@ -1104,7 +1104,7 @@ state 53
     $default  reduce using rule 7 (InstructionSequence)
 
 
-state 54
+State 54
 
     2 Grammar: InstructionSequence .
     5 InstructionSequence: InstructionSequence . Instruction EndlineRepeater
@@ -1215,7 +1215,7 @@ state 54
     label_introduction  go to state 105
 
 
-state 55
+State 55
 
     6 InstructionSequence: Instruction . EndlineRepeater
 
@@ -1224,364 +1224,364 @@ state 55
     EndlineRepeater  go to state 194
 
 
-state 56
+State 56
 
     8 Instruction: add_instruction .
 
     $default  reduce using rule 8 (Instruction)
 
 
-state 57
+State 57
 
     9 Instruction: sub_instruction .
 
     $default  reduce using rule 9 (Instruction)
 
 
-state 58
+State 58
 
    10 Instruction: mul_instruction .
 
     $default  reduce using rule 10 (Instruction)
 
 
-state 59
+State 59
 
    11 Instruction: div_instruction .
 
     $default  reduce using rule 11 (Instruction)
 
 
-state 60
+State 60
 
    12 Instruction: neg_instruction .
 
     $default  reduce using rule 12 (Instruction)
 
 
-state 61
+State 61
 
    13 Instruction: and_instruction .
 
     $default  reduce using rule 13 (Instruction)
 
 
-state 62
+State 62
 
    14 Instruction: or_instruction .
 
     $default  reduce using rule 14 (Instruction)
 
 
-state 63
+State 63
 
    15 Instruction: not_instruction .
 
     $default  reduce using rule 15 (Instruction)
 
 
-state 64
+State 64
 
    16 Instruction: equ_instruction .
 
     $default  reduce using rule 16 (Instruction)
 
 
-state 65
+State 65
 
    17 Instruction: geq_instruction .
 
     $default  reduce using rule 17 (Instruction)
 
 
-state 66
+State 66
 
    18 Instruction: leq_instruction .
 
     $default  reduce using rule 18 (Instruction)
 
 
-state 67
+State 67
 
    19 Instruction: les_instruction .
 
     $default  reduce using rule 19 (Instruction)
 
 
-state 68
+State 68
 
    20 Instruction: grt_instruction .
 
     $default  reduce using rule 20 (Instruction)
 
 
-state 69
+State 69
 
    21 Instruction: neq_instruction .
 
     $default  reduce using rule 21 (Instruction)
 
 
-state 70
+State 70
 
    22 Instruction: ldo_instruction .
 
     $default  reduce using rule 22 (Instruction)
 
 
-state 71
+State 71
 
    23 Instruction: ldc_instruction .
 
     $default  reduce using rule 23 (Instruction)
 
 
-state 72
+State 72
 
    24 Instruction: ind_instruction .
 
     $default  reduce using rule 24 (Instruction)
 
 
-state 73
+State 73
 
    25 Instruction: sro_instruction .
 
     $default  reduce using rule 25 (Instruction)
 
 
-state 74
+State 74
 
    26 Instruction: sto_instruction .
 
     $default  reduce using rule 26 (Instruction)
 
 
-state 75
+State 75
 
    27 Instruction: ujp_instruction .
 
     $default  reduce using rule 27 (Instruction)
 
 
-state 76
+State 76
 
    28 Instruction: fjp_instruction .
 
     $default  reduce using rule 28 (Instruction)
 
 
-state 77
+State 77
 
    29 Instruction: ixj_instruction .
 
     $default  reduce using rule 29 (Instruction)
 
 
-state 78
+State 78
 
    30 Instruction: ixa_instruction .
 
     $default  reduce using rule 30 (Instruction)
 
 
-state 79
+State 79
 
    31 Instruction: inc_instruction .
 
     $default  reduce using rule 31 (Instruction)
 
 
-state 80
+State 80
 
    32 Instruction: dec_instruction .
 
     $default  reduce using rule 32 (Instruction)
 
 
-state 81
+State 81
 
    33 Instruction: chk_instruction .
 
     $default  reduce using rule 33 (Instruction)
 
 
-state 82
+State 82
 
    34 Instruction: dpl_instruction .
 
     $default  reduce using rule 34 (Instruction)
 
 
-state 83
+State 83
 
    35 Instruction: ldd_instruction .
 
     $default  reduce using rule 35 (Instruction)
 
 
-state 84
+State 84
 
    36 Instruction: sli_instruction .
 
     $default  reduce using rule 36 (Instruction)
 
 
-state 85
+State 85
 
    37 Instruction: new_instruction .
 
     $default  reduce using rule 37 (Instruction)
 
 
-state 86
+State 86
 
    38 Instruction: lod_instruction .
 
     $default  reduce using rule 38 (Instruction)
 
 
-state 87
+State 87
 
    39 Instruction: lda_instruction .
 
     $default  reduce using rule 39 (Instruction)
 
 
-state 88
+State 88
 
    40 Instruction: str_instruction .
 
     $default  reduce using rule 40 (Instruction)
 
 
-state 89
+State 89
 
    41 Instruction: mst_instruction .
 
     $default  reduce using rule 41 (Instruction)
 
 
-state 90
+State 90
 
    42 Instruction: cup_instruction .
 
     $default  reduce using rule 42 (Instruction)
 
 
-state 91
+State 91
 
    43 Instruction: ssp_instruction .
 
     $default  reduce using rule 43 (Instruction)
 
 
-state 92
+State 92
 
    44 Instruction: sep_instruction .
 
     $default  reduce using rule 44 (Instruction)
 
 
-state 93
+State 93
 
    45 Instruction: ent_instruction .
 
     $default  reduce using rule 45 (Instruction)
 
 
-state 94
+State 94
 
    46 Instruction: retf_instruction .
 
     $default  reduce using rule 46 (Instruction)
 
 
-state 95
+State 95
 
    47 Instruction: retp_instruction .
 
     $default  reduce using rule 47 (Instruction)
 
 
-state 96
+State 96
 
    48 Instruction: movs_instruction .
 
     $default  reduce using rule 48 (Instruction)
 
 
-state 97
+State 97
 
    49 Instruction: movd_instruction .
 
     $default  reduce using rule 49 (Instruction)
 
 
-state 98
+State 98
 
    50 Instruction: smp_instruction .
 
     $default  reduce using rule 50 (Instruction)
 
 
-state 99
+State 99
 
    51 Instruction: cupi_instruction .
 
     $default  reduce using rule 51 (Instruction)
 
 
-state 100
+State 100
 
    52 Instruction: mstf_instruction .
 
     $default  reduce using rule 52 (Instruction)
 
 
-state 101
+State 101
 
    53 Instruction: hlt_instruction .
 
     $default  reduce using rule 53 (Instruction)
 
 
-state 102
+State 102
 
    54 Instruction: inp_instruction .
 
     $default  reduce using rule 54 (Instruction)
 
 
-state 103
+State 103
 
    55 Instruction: out_instruction .
 
     $default  reduce using rule 55 (Instruction)
 
 
-state 104
+State 104
 
    56 Instruction: conv_instruction .
 
     $default  reduce using rule 56 (Instruction)
 
 
-state 105
+State 105
 
    57 Instruction: label_introduction .
 
     $default  reduce using rule 57 (Instruction)
 
 
-state 106
+State 106
 
    67 add_instruction: add_instr error .
 
     $default  reduce using rule 67 (add_instruction)
 
 
-state 107
+State 107
 
    64 space: blank . space
    65      | blank .
@@ -1593,7 +1593,7 @@ state 107
     space  go to state 195
 
 
-state 108
+State 108
 
    66 add_instruction: add_instr space . numeric
 
@@ -1603,14 +1603,14 @@ state 108
     numeric  go to state 198
 
 
-state 109
+State 109
 
    69 sub_instruction: sub_instr error .
 
     $default  reduce using rule 69 (sub_instruction)
 
 
-state 110
+State 110
 
    68 sub_instruction: sub_instr space . numeric
 
@@ -1620,14 +1620,14 @@ state 110
     numeric  go to state 199
 
 
-state 111
+State 111
 
    71 mul_instruction: mul_instr error .
 
     $default  reduce using rule 71 (mul_instruction)
 
 
-state 112
+State 112
 
    70 mul_instruction: mul_instr space . numeric
 
@@ -1637,14 +1637,14 @@ state 112
     numeric  go to state 200
 
 
-state 113
+State 113
 
    73 div_instruction: div_instr error .
 
     $default  reduce using rule 73 (div_instruction)
 
 
-state 114
+State 114
 
    72 div_instruction: div_instr space . numeric
 
@@ -1654,14 +1654,14 @@ state 114
     numeric  go to state 201
 
 
-state 115
+State 115
 
    75 neg_instruction: neg_instr error .
 
     $default  reduce using rule 75 (neg_instruction)
 
 
-state 116
+State 116
 
    74 neg_instruction: neg_instr space . numeric
 
@@ -1671,14 +1671,14 @@ state 116
     numeric  go to state 202
 
 
-state 117
+State 117
 
    80 equ_instruction: equ_instr error .
 
     $default  reduce using rule 80 (equ_instruction)
 
 
-state 118
+State 118
 
    79 equ_instruction: equ_instr space . arbitrary
 
@@ -1692,14 +1692,14 @@ state 118
     arbitrary  go to state 207
 
 
-state 119
+State 119
 
    82 geq_instruction: geq_instr error .
 
     $default  reduce using rule 82 (geq_instruction)
 
 
-state 120
+State 120
 
    81 geq_instruction: geq_instr space . arbitrary
 
@@ -1713,14 +1713,14 @@ state 120
     arbitrary  go to state 208
 
 
-state 121
+State 121
 
    84 leq_instruction: leq_instr error .
 
     $default  reduce using rule 84 (leq_instruction)
 
 
-state 122
+State 122
 
    83 leq_instruction: leq_instr space . arbitrary
 
@@ -1734,14 +1734,14 @@ state 122
     arbitrary  go to state 209
 
 
-state 123
+State 123
 
    86 les_instruction: les_instr error .
 
     $default  reduce using rule 86 (les_instruction)
 
 
-state 124
+State 124
 
    85 les_instruction: les_instr space . arbitrary
 
@@ -1755,14 +1755,14 @@ state 124
     arbitrary  go to state 210
 
 
-state 125
+State 125
 
    88 grt_instruction: grt_instr error .
 
     $default  reduce using rule 88 (grt_instruction)
 
 
-state 126
+State 126
 
    87 grt_instruction: grt_instr space . arbitrary
 
@@ -1776,14 +1776,14 @@ state 126
     arbitrary  go to state 211
 
 
-state 127
+State 127
 
    90 neq_instruction: neq_instr error .
 
     $default  reduce using rule 90 (neq_instruction)
 
 
-state 128
+State 128
 
    89 neq_instruction: neq_instr space . arbitrary
 
@@ -1797,14 +1797,14 @@ state 128
     arbitrary  go to state 212
 
 
-state 129
+State 129
 
    92 ldo_instruction: ldo_instr error .
 
     $default  reduce using rule 92 (ldo_instruction)
 
 
-state 130
+State 130
 
    91 ldo_instruction: ldo_instr space . arbitrary space integervalue
 
@@ -1818,14 +1818,14 @@ state 130
     arbitrary  go to state 213
 
 
-state 131
+State 131
 
    99 ldc_instruction: ldc_instr error .
 
     $default  reduce using rule 99 (ldc_instruction)
 
 
-state 132
+State 132
 
    93 ldc_instruction: ldc_instr space . real_specifier space realvalue
    94                | ldc_instr space . integer_specifier space integervalue
@@ -1841,14 +1841,14 @@ state 132
     address_specifier    shift, and go to state 218
 
 
-state 133
+State 133
 
   101 ind_instruction: ind_instr error .
 
     $default  reduce using rule 101 (ind_instruction)
 
 
-state 134
+State 134
 
   100 ind_instruction: ind_instr space . arbitrary
 
@@ -1862,14 +1862,14 @@ state 134
     arbitrary  go to state 219
 
 
-state 135
+State 135
 
   103 sro_instruction: sro_instr error .
 
     $default  reduce using rule 103 (sro_instruction)
 
 
-state 136
+State 136
 
   102 sro_instruction: sro_instr space . arbitrary space integervalue
 
@@ -1883,14 +1883,14 @@ state 136
     arbitrary  go to state 220
 
 
-state 137
+State 137
 
   105 sto_instruction: sto_instr error .
 
     $default  reduce using rule 105 (sto_instruction)
 
 
-state 138
+State 138
 
   104 sto_instruction: sto_instr space . arbitrary
 
@@ -1904,70 +1904,70 @@ state 138
     arbitrary  go to state 221
 
 
-state 139
+State 139
 
   107 ujp_instruction: ujp_instr error .
 
     $default  reduce using rule 107 (ujp_instruction)
 
 
-state 140
+State 140
 
   106 ujp_instruction: ujp_instr space . appliedlabel
 
     appliedlabel  shift, and go to state 222
 
 
-state 141
+State 141
 
   109 fjp_instruction: fjp_instr error .
 
     $default  reduce using rule 109 (fjp_instruction)
 
 
-state 142
+State 142
 
   108 fjp_instruction: fjp_instr space . appliedlabel
 
     appliedlabel  shift, and go to state 223
 
 
-state 143
+State 143
 
   111 ixj_instruction: ixj_instr error .
 
     $default  reduce using rule 111 (ixj_instruction)
 
 
-state 144
+State 144
 
   110 ixj_instruction: ixj_instr space . appliedlabel
 
     appliedlabel  shift, and go to state 224
 
 
-state 145
+State 145
 
   113 ixa_instruction: ixa_instr error .
 
     $default  reduce using rule 113 (ixa_instruction)
 
 
-state 146
+State 146
 
   112 ixa_instruction: ixa_instr space . integervalue
 
     integervalue  shift, and go to state 225
 
 
-state 147
+State 147
 
   115 inc_instruction: inc_instr error .
 
     $default  reduce using rule 115 (inc_instruction)
 
 
-state 148
+State 148
 
   114 inc_instruction: inc_instr space . arbitrary space integervalue
 
@@ -1981,14 +1981,14 @@ state 148
     arbitrary  go to state 226
 
 
-state 149
+State 149
 
   117 dec_instruction: dec_instr error .
 
     $default  reduce using rule 117 (dec_instruction)
 
 
-state 150
+State 150
 
   116 dec_instruction: dec_instr space . arbitrary space integervalue
 
@@ -2002,28 +2002,28 @@ state 150
     arbitrary  go to state 227
 
 
-state 151
+State 151
 
   119 chk_instruction: chk_instr error .
 
     $default  reduce using rule 119 (chk_instruction)
 
 
-state 152
+State 152
 
   118 chk_instruction: chk_instr space . integervalue space integervalue
 
     integervalue  shift, and go to state 228
 
 
-state 153
+State 153
 
   121 dpl_instruction: dpl_instr error .
 
     $default  reduce using rule 121 (dpl_instruction)
 
 
-state 154
+State 154
 
   120 dpl_instruction: dpl_instr space . arbitrary
 
@@ -2037,28 +2037,28 @@ state 154
     arbitrary  go to state 229
 
 
-state 155
+State 155
 
   123 ldd_instruction: ldd_instr error .
 
     $default  reduce using rule 123 (ldd_instruction)
 
 
-state 156
+State 156
 
   122 ldd_instruction: ldd_instr space . integervalue
 
     integervalue  shift, and go to state 230
 
 
-state 157
+State 157
 
   125 sli_instruction: sli_instr error .
 
     $default  reduce using rule 125 (sli_instruction)
 
 
-state 158
+State 158
 
   124 sli_instruction: sli_instr space . arbitrary
 
@@ -2072,14 +2072,14 @@ state 158
     arbitrary  go to state 231
 
 
-state 159
+State 159
 
   128 lod_instruction: lod_instr error .
 
     $default  reduce using rule 128 (lod_instruction)
 
 
-state 160
+State 160
 
   127 lod_instruction: lod_instr space . arbitrary space integervalue space integervalue
 
@@ -2093,28 +2093,28 @@ state 160
     arbitrary  go to state 232
 
 
-state 161
+State 161
 
   130 lda_instruction: lda_instr error .
 
     $default  reduce using rule 130 (lda_instruction)
 
 
-state 162
+State 162
 
   129 lda_instruction: lda_instr space . integervalue space integervalue
 
     integervalue  shift, and go to state 233
 
 
-state 163
+State 163
 
   132 str_instruction: str_instr error .
 
     $default  reduce using rule 132 (str_instruction)
 
 
-state 164
+State 164
 
   131 str_instruction: str_instr space . arbitrary space integervalue space integervalue
 
@@ -2128,154 +2128,154 @@ state 164
     arbitrary  go to state 234
 
 
-state 165
+State 165
 
   134 mst_instruction: mst_instr error .
 
     $default  reduce using rule 134 (mst_instruction)
 
 
-state 166
+State 166
 
   133 mst_instruction: mst_instr space . integervalue
 
     integervalue  shift, and go to state 235
 
 
-state 167
+State 167
 
   136 cup_instruction: cup_instr error .
 
     $default  reduce using rule 136 (cup_instruction)
 
 
-state 168
+State 168
 
   135 cup_instruction: cup_instr space . integervalue space appliedlabel
 
     integervalue  shift, and go to state 236
 
 
-state 169
+State 169
 
   138 ssp_instruction: ssp_instr error .
 
     $default  reduce using rule 138 (ssp_instruction)
 
 
-state 170
+State 170
 
   137 ssp_instruction: ssp_instr space . integervalue
 
     integervalue  shift, and go to state 237
 
 
-state 171
+State 171
 
   140 sep_instruction: sep_instr error .
 
     $default  reduce using rule 140 (sep_instruction)
 
 
-state 172
+State 172
 
   139 sep_instruction: sep_instr space . integervalue
 
     integervalue  shift, and go to state 238
 
 
-state 173
+State 173
 
   142 ent_instruction: ent_instr error .
 
     $default  reduce using rule 142 (ent_instruction)
 
 
-state 174
+State 174
 
   141 ent_instruction: ent_instr space . integervalue space integervalue
 
     integervalue  shift, and go to state 239
 
 
-state 175
+State 175
 
   146 movs_instruction: movs_instr error .
 
     $default  reduce using rule 146 (movs_instruction)
 
 
-state 176
+State 176
 
   145 movs_instruction: movs_instr space . integervalue
 
     integervalue  shift, and go to state 240
 
 
-state 177
+State 177
 
   148 movd_instruction: movd_instr error .
 
     $default  reduce using rule 148 (movd_instruction)
 
 
-state 178
+State 178
 
   147 movd_instruction: movd_instr space . integervalue
 
     integervalue  shift, and go to state 241
 
 
-state 179
+State 179
 
   150 smp_instruction: smp_instr error .
 
     $default  reduce using rule 150 (smp_instruction)
 
 
-state 180
+State 180
 
   149 smp_instruction: smp_instr space . integervalue
 
     integervalue  shift, and go to state 242
 
 
-state 181
+State 181
 
   152 cupi_instruction: cupi_instr error .
 
     $default  reduce using rule 152 (cupi_instruction)
 
 
-state 182
+State 182
 
   151 cupi_instruction: cupi_instr space . integervalue space integervalue
 
     integervalue  shift, and go to state 243
 
 
-state 183
+State 183
 
   154 mstf_instruction: mstf_instr error .
 
     $default  reduce using rule 154 (mstf_instruction)
 
 
-state 184
+State 184
 
   153 mstf_instruction: mstf_instr space . integervalue space integervalue
 
     integervalue  shift, and go to state 244
 
 
-state 185
+State 185
 
   161 inp_instruction: inp_instr error .
 
     $default  reduce using rule 161 (inp_instruction)
 
 
-state 186
+State 186
 
   156 inp_instruction: inp_instr space . integer_specifier
   157                | inp_instr space . real_specifier
@@ -2290,14 +2290,14 @@ state 186
     address_specifier    shift, and go to state 249
 
 
-state 187
+State 187
 
   168 out_instruction: out_instr error .
 
     $default  reduce using rule 168 (out_instruction)
 
 
-state 188
+State 188
 
   162 out_instruction: out_instr space . real_specifier space integer_specifier
   163                | out_instr space . real_specifier
@@ -2313,14 +2313,14 @@ state 188
     address_specifier    shift, and go to state 254
 
 
-state 189
+State 189
 
   170 conv_instruction: conv_instr error .
 
     $default  reduce using rule 170 (conv_instruction)
 
 
-state 190
+State 190
 
   169 conv_instruction: conv_instr space . arbitrary space arbitrary
 
@@ -2334,21 +2334,21 @@ state 190
     arbitrary  go to state 255
 
 
-state 191
+State 191
 
     0 $accept: Grammar $end .
 
     $default  accept
 
 
-state 192
+State 192
 
     3 EndlineRepeater: EndlineRepeater endline .
 
     $default  reduce using rule 3 (EndlineRepeater)
 
 
-state 193
+State 193
 
     5 InstructionSequence: InstructionSequence Instruction . EndlineRepeater
 
@@ -2357,7 +2357,7 @@ state 193
     EndlineRepeater  go to state 256
 
 
-state 194
+State 194
 
     3 EndlineRepeater: EndlineRepeater . endline
     6 InstructionSequence: Instruction EndlineRepeater .
@@ -2367,133 +2367,133 @@ state 194
     $default  reduce using rule 6 (InstructionSequence)
 
 
-state 195
+State 195
 
    64 space: blank space .
 
     $default  reduce using rule 64 (space)
 
 
-state 196
+State 196
 
    58 numeric: real_specifier .
 
     $default  reduce using rule 58 (numeric)
 
 
-state 197
+State 197
 
    59 numeric: integer_specifier .
 
     $default  reduce using rule 59 (numeric)
 
 
-state 198
+State 198
 
    66 add_instruction: add_instr space numeric .
 
     $default  reduce using rule 66 (add_instruction)
 
 
-state 199
+State 199
 
    68 sub_instruction: sub_instr space numeric .
 
     $default  reduce using rule 68 (sub_instruction)
 
 
-state 200
+State 200
 
    70 mul_instruction: mul_instr space numeric .
 
     $default  reduce using rule 70 (mul_instruction)
 
 
-state 201
+State 201
 
    72 div_instruction: div_instr space numeric .
 
     $default  reduce using rule 72 (div_instruction)
 
 
-state 202
+State 202
 
    74 neg_instruction: neg_instr space numeric .
 
     $default  reduce using rule 74 (neg_instruction)
 
 
-state 203
+State 203
 
    61 arbitrary: boolean_specifier .
 
     $default  reduce using rule 61 (arbitrary)
 
 
-state 204
+State 204
 
    62 arbitrary: character_specifier .
 
     $default  reduce using rule 62 (arbitrary)
 
 
-state 205
+State 205
 
    63 arbitrary: address_specifier .
 
     $default  reduce using rule 63 (arbitrary)
 
 
-state 206
+State 206
 
    60 arbitrary: numeric .
 
     $default  reduce using rule 60 (arbitrary)
 
 
-state 207
+State 207
 
    79 equ_instruction: equ_instr space arbitrary .
 
     $default  reduce using rule 79 (equ_instruction)
 
 
-state 208
+State 208
 
    81 geq_instruction: geq_instr space arbitrary .
 
     $default  reduce using rule 81 (geq_instruction)
 
 
-state 209
+State 209
 
    83 leq_instruction: leq_instr space arbitrary .
 
     $default  reduce using rule 83 (leq_instruction)
 
 
-state 210
+State 210
 
    85 les_instruction: les_instr space arbitrary .
 
     $default  reduce using rule 85 (les_instruction)
 
 
-state 211
+State 211
 
    87 grt_instruction: grt_instr space arbitrary .
 
     $default  reduce using rule 87 (grt_instruction)
 
 
-state 212
+State 212
 
    89 neq_instruction: neq_instr space arbitrary .
 
     $default  reduce using rule 89 (neq_instruction)
 
 
-state 213
+State 213
 
    91 ldo_instruction: ldo_instr space arbitrary . space integervalue
 
@@ -2502,7 +2502,7 @@ state 213
     space  go to state 257
 
 
-state 214
+State 214
 
    95 ldc_instruction: ldc_instr space boolean_specifier . space boolvalue
 
@@ -2511,7 +2511,7 @@ state 214
     space  go to state 258
 
 
-state 215
+State 215
 
    93 ldc_instruction: ldc_instr space real_specifier . space realvalue
 
@@ -2520,7 +2520,7 @@ state 215
     space  go to state 259
 
 
-state 216
+State 216
 
    94 ldc_instruction: ldc_instr space integer_specifier . space integervalue
 
@@ -2529,7 +2529,7 @@ state 216
     space  go to state 260
 
 
-state 217
+State 217
 
    96 ldc_instruction: ldc_instr space character_specifier . space integervalue
    97                | ldc_instr space character_specifier . space charactervalue
@@ -2539,7 +2539,7 @@ state 217
     space  go to state 261
 
 
-state 218
+State 218
 
    98 ldc_instruction: ldc_instr space address_specifier . space integervalue
 
@@ -2548,14 +2548,14 @@ state 218
     space  go to state 262
 
 
-state 219
+State 219
 
   100 ind_instruction: ind_instr space arbitrary .
 
     $default  reduce using rule 100 (ind_instruction)
 
 
-state 220
+State 220
 
   102 sro_instruction: sro_instr space arbitrary . space integervalue
 
@@ -2564,42 +2564,42 @@ state 220
     space  go to state 263
 
 
-state 221
+State 221
 
   104 sto_instruction: sto_instr space arbitrary .
 
     $default  reduce using rule 104 (sto_instruction)
 
 
-state 222
+State 222
 
   106 ujp_instruction: ujp_instr space appliedlabel .
 
     $default  reduce using rule 106 (ujp_instruction)
 
 
-state 223
+State 223
 
   108 fjp_instruction: fjp_instr space appliedlabel .
 
     $default  reduce using rule 108 (fjp_instruction)
 
 
-state 224
+State 224
 
   110 ixj_instruction: ixj_instr space appliedlabel .
 
     $default  reduce using rule 110 (ixj_instruction)
 
 
-state 225
+State 225
 
   112 ixa_instruction: ixa_instr space integervalue .
 
     $default  reduce using rule 112 (ixa_instruction)
 
 
-state 226
+State 226
 
   114 inc_instruction: inc_instr space arbitrary . space integervalue
 
@@ -2608,7 +2608,7 @@ state 226
     space  go to state 264
 
 
-state 227
+State 227
 
   116 dec_instruction: dec_instr space arbitrary . space integervalue
 
@@ -2617,7 +2617,7 @@ state 227
     space  go to state 265
 
 
-state 228
+State 228
 
   118 chk_instruction: chk_instr space integervalue . space integervalue
 
@@ -2626,28 +2626,28 @@ state 228
     space  go to state 266
 
 
-state 229
+State 229
 
   120 dpl_instruction: dpl_instr space arbitrary .
 
     $default  reduce using rule 120 (dpl_instruction)
 
 
-state 230
+State 230
 
   122 ldd_instruction: ldd_instr space integervalue .
 
     $default  reduce using rule 122 (ldd_instruction)
 
 
-state 231
+State 231
 
   124 sli_instruction: sli_instr space arbitrary .
 
     $default  reduce using rule 124 (sli_instruction)
 
 
-state 232
+State 232
 
   127 lod_instruction: lod_instr space arbitrary . space integervalue space integervalue
 
@@ -2656,7 +2656,7 @@ state 232
     space  go to state 267
 
 
-state 233
+State 233
 
   129 lda_instruction: lda_instr space integervalue . space integervalue
 
@@ -2665,7 +2665,7 @@ state 233
     space  go to state 268
 
 
-state 234
+State 234
 
   131 str_instruction: str_instr space arbitrary . space integervalue space integervalue
 
@@ -2674,14 +2674,14 @@ state 234
     space  go to state 269
 
 
-state 235
+State 235
 
   133 mst_instruction: mst_instr space integervalue .
 
     $default  reduce using rule 133 (mst_instruction)
 
 
-state 236
+State 236
 
   135 cup_instruction: cup_instr space integervalue . space appliedlabel
 
@@ -2690,21 +2690,21 @@ state 236
     space  go to state 270
 
 
-state 237
+State 237
 
   137 ssp_instruction: ssp_instr space integervalue .
 
     $default  reduce using rule 137 (ssp_instruction)
 
 
-state 238
+State 238
 
   139 sep_instruction: sep_instr space integervalue .
 
     $default  reduce using rule 139 (sep_instruction)
 
 
-state 239
+State 239
 
   141 ent_instruction: ent_instr space integervalue . space integervalue
 
@@ -2713,28 +2713,28 @@ state 239
     space  go to state 271
 
 
-state 240
+State 240
 
   145 movs_instruction: movs_instr space integervalue .
 
     $default  reduce using rule 145 (movs_instruction)
 
 
-state 241
+State 241
 
   147 movd_instruction: movd_instr space integervalue .
 
     $default  reduce using rule 147 (movd_instruction)
 
 
-state 242
+State 242
 
   149 smp_instruction: smp_instr space integervalue .
 
     $default  reduce using rule 149 (smp_instruction)
 
 
-state 243
+State 243
 
   151 cupi_instruction: cupi_instr space integervalue . space integervalue
 
@@ -2743,7 +2743,7 @@ state 243
     space  go to state 272
 
 
-state 244
+State 244
 
   153 mstf_instruction: mstf_instr space integervalue . space integervalue
 
@@ -2752,49 +2752,49 @@ state 244
     space  go to state 273
 
 
-state 245
+State 245
 
   158 inp_instruction: inp_instr space boolean_specifier .
 
     $default  reduce using rule 158 (inp_instruction)
 
 
-state 246
+State 246
 
   157 inp_instruction: inp_instr space real_specifier .
 
     $default  reduce using rule 157 (inp_instruction)
 
 
-state 247
+State 247
 
   156 inp_instruction: inp_instr space integer_specifier .
 
     $default  reduce using rule 156 (inp_instruction)
 
 
-state 248
+State 248
 
   159 inp_instruction: inp_instr space character_specifier .
 
     $default  reduce using rule 159 (inp_instruction)
 
 
-state 249
+State 249
 
   160 inp_instruction: inp_instr space address_specifier .
 
     $default  reduce using rule 160 (inp_instruction)
 
 
-state 250
+State 250
 
   167 out_instruction: out_instr space boolean_specifier .
 
     $default  reduce using rule 167 (out_instruction)
 
 
-state 251
+State 251
 
   162 out_instruction: out_instr space real_specifier . space integer_specifier
   163                | out_instr space real_specifier .
@@ -2806,28 +2806,28 @@ state 251
     space  go to state 274
 
 
-state 252
+State 252
 
   164 out_instruction: out_instr space integer_specifier .
 
     $default  reduce using rule 164 (out_instruction)
 
 
-state 253
+State 253
 
   165 out_instruction: out_instr space character_specifier .
 
     $default  reduce using rule 165 (out_instruction)
 
 
-state 254
+State 254
 
   166 out_instruction: out_instr space address_specifier .
 
     $default  reduce using rule 166 (out_instruction)
 
 
-state 255
+State 255
 
   169 conv_instruction: conv_instr space arbitrary . space arbitrary
 
@@ -2836,7 +2836,7 @@ state 255
     space  go to state 275
 
 
-state 256
+State 256
 
     3 EndlineRepeater: EndlineRepeater . endline
     5 InstructionSequence: InstructionSequence Instruction EndlineRepeater .
@@ -2846,35 +2846,35 @@ state 256
     $default  reduce using rule 5 (InstructionSequence)
 
 
-state 257
+State 257
 
    91 ldo_instruction: ldo_instr space arbitrary space . integervalue
 
     integervalue  shift, and go to state 276
 
 
-state 258
+State 258
 
    95 ldc_instruction: ldc_instr space boolean_specifier space . boolvalue
 
     boolvalue  shift, and go to state 277
 
 
-state 259
+State 259
 
    93 ldc_instruction: ldc_instr space real_specifier space . realvalue
 
     realvalue  shift, and go to state 278
 
 
-state 260
+State 260
 
    94 ldc_instruction: ldc_instr space integer_specifier space . integervalue
 
     integervalue  shift, and go to state 279
 
 
-state 261
+State 261
 
    96 ldc_instruction: ldc_instr space character_specifier space . integervalue
    97                | ldc_instr space character_specifier space . charactervalue
@@ -2883,98 +2883,98 @@ state 261
     charactervalue  shift, and go to state 281
 
 
-state 262
+State 262
 
    98 ldc_instruction: ldc_instr space address_specifier space . integervalue
 
     integervalue  shift, and go to state 282
 
 
-state 263
+State 263
 
   102 sro_instruction: sro_instr space arbitrary space . integervalue
 
     integervalue  shift, and go to state 283
 
 
-state 264
+State 264
 
   114 inc_instruction: inc_instr space arbitrary space . integervalue
 
     integervalue  shift, and go to state 284
 
 
-state 265
+State 265
 
   116 dec_instruction: dec_instr space arbitrary space . integervalue
 
     integervalue  shift, and go to state 285
 
 
-state 266
+State 266
 
   118 chk_instruction: chk_instr space integervalue space . integervalue
 
     integervalue  shift, and go to state 286
 
 
-state 267
+State 267
 
   127 lod_instruction: lod_instr space arbitrary space . integervalue space integervalue
 
     integervalue  shift, and go to state 287
 
 
-state 268
+State 268
 
   129 lda_instruction: lda_instr space integervalue space . integervalue
 
     integervalue  shift, and go to state 288
 
 
-state 269
+State 269
 
   131 str_instruction: str_instr space arbitrary space . integervalue space integervalue
 
     integervalue  shift, and go to state 289
 
 
-state 270
+State 270
 
   135 cup_instruction: cup_instr space integervalue space . appliedlabel
 
     appliedlabel  shift, and go to state 290
 
 
-state 271
+State 271
 
   141 ent_instruction: ent_instr space integervalue space . integervalue
 
     integervalue  shift, and go to state 291
 
 
-state 272
+State 272
 
   151 cupi_instruction: cupi_instr space integervalue space . integervalue
 
     integervalue  shift, and go to state 292
 
 
-state 273
+State 273
 
   153 mstf_instruction: mstf_instr space integervalue space . integervalue
 
     integervalue  shift, and go to state 293
 
 
-state 274
+State 274
 
   162 out_instruction: out_instr space real_specifier space . integer_specifier
 
     integer_specifier  shift, and go to state 294
 
 
-state 275
+State 275
 
   169 conv_instruction: conv_instr space arbitrary space . arbitrary
 
@@ -2988,84 +2988,84 @@ state 275
     arbitrary  go to state 295
 
 
-state 276
+State 276
 
    91 ldo_instruction: ldo_instr space arbitrary space integervalue .
 
     $default  reduce using rule 91 (ldo_instruction)
 
 
-state 277
+State 277
 
    95 ldc_instruction: ldc_instr space boolean_specifier space boolvalue .
 
     $default  reduce using rule 95 (ldc_instruction)
 
 
-state 278
+State 278
 
    93 ldc_instruction: ldc_instr space real_specifier space realvalue .
 
     $default  reduce using rule 93 (ldc_instruction)
 
 
-state 279
+State 279
 
    94 ldc_instruction: ldc_instr space integer_specifier space integervalue .
 
     $default  reduce using rule 94 (ldc_instruction)
 
 
-state 280
+State 280
 
    96 ldc_instruction: ldc_instr space character_specifier space integervalue .
 
     $default  reduce using rule 96 (ldc_instruction)
 
 
-state 281
+State 281
 
    97 ldc_instruction: ldc_instr space character_specifier space charactervalue .
 
     $default  reduce using rule 97 (ldc_instruction)
 
 
-state 282
+State 282
 
    98 ldc_instruction: ldc_instr space address_specifier space integervalue .
 
     $default  reduce using rule 98 (ldc_instruction)
 
 
-state 283
+State 283
 
   102 sro_instruction: sro_instr space arbitrary space integervalue .
 
     $default  reduce using rule 102 (sro_instruction)
 
 
-state 284
+State 284
 
   114 inc_instruction: inc_instr space arbitrary space integervalue .
 
     $default  reduce using rule 114 (inc_instruction)
 
 
-state 285
+State 285
 
   116 dec_instruction: dec_instr space arbitrary space integervalue .
 
     $default  reduce using rule 116 (dec_instruction)
 
 
-state 286
+State 286
 
   118 chk_instruction: chk_instr space integervalue space integervalue .
 
     $default  reduce using rule 118 (chk_instruction)
 
 
-state 287
+State 287
 
   127 lod_instruction: lod_instr space arbitrary space integervalue . space integervalue
 
@@ -3074,14 +3074,14 @@ state 287
     space  go to state 296
 
 
-state 288
+State 288
 
   129 lda_instruction: lda_instr space integervalue space integervalue .
 
     $default  reduce using rule 129 (lda_instruction)
 
 
-state 289
+State 289
 
   131 str_instruction: str_instr space arbitrary space integervalue . space integervalue
 
@@ -3090,70 +3090,70 @@ state 289
     space  go to state 297
 
 
-state 290
+State 290
 
   135 cup_instruction: cup_instr space integervalue space appliedlabel .
 
     $default  reduce using rule 135 (cup_instruction)
 
 
-state 291
+State 291
 
   141 ent_instruction: ent_instr space integervalue space integervalue .
 
     $default  reduce using rule 141 (ent_instruction)
 
 
-state 292
+State 292
 
   151 cupi_instruction: cupi_instr space integervalue space integervalue .
 
     $default  reduce using rule 151 (cupi_instruction)
 
 
-state 293
+State 293
 
   153 mstf_instruction: mstf_instr space integervalue space integervalue .
 
     $default  reduce using rule 153 (mstf_instruction)
 
 
-state 294
+State 294
 
   162 out_instruction: out_instr space real_specifier space integer_specifier .
 
     $default  reduce using rule 162 (out_instruction)
 
 
-state 295
+State 295
 
   169 conv_instruction: conv_instr space arbitrary space arbitrary .
 
     $default  reduce using rule 169 (conv_instruction)
 
 
-state 296
+State 296
 
   127 lod_instruction: lod_instr space arbitrary space integervalue space . integervalue
 
     integervalue  shift, and go to state 298
 
 
-state 297
+State 297
 
   131 str_instruction: str_instr space arbitrary space integervalue space . integervalue
 
     integervalue  shift, and go to state 299
 
 
-state 298
+State 298
 
   127 lod_instruction: lod_instr space arbitrary space integervalue space integervalue .
 
     $default  reduce using rule 127 (lod_instruction)
 
 
-state 299
+State 299
 
   131 str_instruction: str_instr space arbitrary space integervalue space integervalue .
 
