@@ -42,8 +42,7 @@ void In::execute(StackMachine *stack)
 		}
 		case character:
 		{
-			char inputvalue;
-			cin >> inputvalue;
+			char inputvalue = cin.get();
 			stack->fStore.push_back(new StackCharacter(inputvalue));
 			break;
 		}
